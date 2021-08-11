@@ -1,0 +1,97 @@
+:root {
+	--gris: #6e707a;
+	--gris2: #6f6f6f;
+	--gris3: #e1e1e1;
+	--narajna: #da552f;
+	--azulClaro: #1e213a;
+	--azulOscuro: #100e1d;
+	--azulGris: #585676;
+	--blanco: #ffff;
+	--blancoBoton: #e7e7eb;
+	--azul: #3c47e9;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+	color: var(--blanco);
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 1.4rem /* 16px */;
+	line-height: 1.5;
+	font-family: "PT Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0 0 2rem 0;
+	line-height: 1.5;
+}
+
+h1,
+h2 {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+}
+
+h3 {
+	font-family: "PT Sans", sans-serif;
+}
+
+p {
+	font-family: "PT Sans", sans-serif;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.contenedor-app {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-width: 300px;
+}
+
+aside {
+	background-color: var(--azulClaro);
+}
+
+.seccion-principal {
+	background-color: var(--azulOscuro);
+	flex: 1;
+}
+
+@media (min-width: 900px) {
+	.contenedor-app {
+		flex-direction: row;
+	}
+
+	aside {
+		flex: 0 0 500px;
+	}
+
+	.imagen-fondo {
+		background-image: url("../assets/Cloud-background.png");
+		background-repeat: no-repeat;
+		background-size: 500px;
+		background-position-y: 6rem;
+		background-attachment: scroll;
+	}
+}
