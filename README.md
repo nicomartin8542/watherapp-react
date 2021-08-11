@@ -4,7 +4,7 @@
 
 ## Descripcion
 
-- Aplicacion del clima hecha en React con hooks useContext y use Reducer con styled components.
+- Aplicacion del clima hecha en React con hooks (useContext - useReducer) y maquetado con styled components.
 
 ### Dependenciias
 
