@@ -1,6 +1,6 @@
 # APP Clima
 
-![Alt text](/assets/appclima.jpg)
+![Alt text](/assets/appclima.png)
 
 ## Descripcion
 
