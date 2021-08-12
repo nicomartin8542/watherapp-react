@@ -17,7 +17,10 @@ const CardDias = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: var(--azulClaro);
+	background-color: ${(props) =>
+		props.btnBlanco ? "var(--gris4)" : "var(--azulClaro);"};
+	color: ${(props) =>
+		props.btnBlanco ? "var(--azulOscuro)" : "var(--blanco);"};
 	padding: 0 2rem 0rem 2rem;
 	margin-bottom: 1rem;
 	font-family: "Roboto", sans-serif;
@@ -46,7 +49,8 @@ const Temperatura = styled.div`
 	span {
 		margin-left: 1rem;
 
-		color: var(--gris);
+		color: ${(props) =>
+			props.btnBlanco ? "var(--blancoPrincipal)" : "var(--gris);"};
 	}
 `;
 
@@ -68,7 +72,7 @@ const Dias = () => {
 	const climaContext = useContext(ClimaContext);
 
 	//Obtenego variables
-	const {climasPrevision, medidas} = climaContext;
+	const {climasPrevision, medidas, fondoBlanco} = climaContext;
 
 	const calcularTemperatura = (medidas, temp_max, temp_min) => {
 		let min;
@@ -100,7 +104,7 @@ const Dias = () => {
 					if (index >= 1 && index <= 5) {
 						let temp = calcularTemperatura(medidas, d.temp.max, d.temp.min);
 						return (
-							<CardDias key={d.dt}>
+							<CardDias key={d.dt} btnBlanco={fondoBlanco}>
 								{index === 1 ? (
 									<p>Mañana</p>
 								) : (
@@ -115,7 +119,7 @@ const Dias = () => {
 									alt={`${d.weather[0].main}`}
 									title={`${formatearMayuscula(d.weather[0].description)}`}
 								/>
-								<Temperatura>
+								<Temperatura btnBlanco={fondoBlanco}>
 									<p>
 										{temp.max}°{medidas}{" "}
 										<span>

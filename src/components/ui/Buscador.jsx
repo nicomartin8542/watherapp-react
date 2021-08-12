@@ -14,8 +14,10 @@ const BuscadorContainer = styled.div`
 const BotonCerrar = styled.button`
 	padding: 1rem;
 	font-size: 3rem;
-	color: var(--blanco);
-	background-color: var(--azulClaro);
+	color: ${(props) =>
+		props.btnBlanco ? "var(--azulOscuro)" : "var(--blanco)"};
+	background-color: ${(props) =>
+		props.btnBlanco ? "var(--gris4)" : "var(--azulClaro)"};
 	border: none;
 	align-items: right;
 	position: absolute;
@@ -31,11 +33,15 @@ const Buscador = () => {
 	const climaContext = useContext(ClimaContext);
 
 	//Obtenego variables
-	const {cerrarFormulario} = climaContext;
+	const {cerrarFormulario, fondoBlanco} = climaContext;
 
 	return (
 		<BuscadorContainer>
-			<BotonCerrar type="button" onClick={() => cerrarFormulario()}>
+			<BotonCerrar
+				type="button"
+				btnBlanco={fondoBlanco}
+				onClick={() => cerrarFormulario()}
+			>
 				&#xD7;
 			</BotonCerrar>
 			<FormBuscador />

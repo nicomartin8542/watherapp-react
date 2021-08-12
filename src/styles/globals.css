@@ -2,11 +2,13 @@
 	--gris: #6e707a;
 	--gris2: #6f6f6f;
 	--gris3: #e1e1e1;
+	--gris4: #9e9e9e;
 	--narajna: #da552f;
 	--azulClaro: #1e213a;
 	--azulOscuro: #100e1d;
 	--azulGris: #585676;
 	--blanco: #ffff;
+	--blancoPrincipal: rgb(224, 224, 224);
 	--blancoBoton: #e7e7eb;
 	--azul: #3c47e9;
 }
@@ -67,15 +69,6 @@ a {
 	flex-direction: column;
 	min-height: 100vh;
 	min-width: 300px;
-}
-
-aside {
-	background-color: var(--azulClaro);
-}
-
-.seccion-principal {
-	background-color: var(--azulOscuro);
-	flex: 1;
 }
 
 @media (min-width: 900px) {

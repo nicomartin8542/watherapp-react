@@ -21,7 +21,8 @@ const InputText = styled.input`
 	color: var(--blanco);
 	font-weight: 700;
 	text-align: left;
-	background-color: var(--azulClaro);
+	background-color: ${(props) =>
+		props.btnBlanco ? "var(--gris)" : "var(--azulClaro)"};
 	border: 1px solid var(--gris);
 	width: 100%;
 	margin-bottom: 2rem;
@@ -37,7 +38,8 @@ const Select = styled.select`
 	font-weight: 700;
 	margin-bottom: 2rem;
 	border-radius: 5px;
-	background-color: var(--azulClaro);
+	background-color: ${(props) =>
+		props.btnBlanco ? "var(--gris)" : "var(--azulClaro)"};
 	border: 1px solid var(--gris);
 	color: var(--blanco);
 `;
@@ -73,7 +75,7 @@ const FormBuscador = () => {
 
 	//Creo state del context de clima
 	const climaContext = useContext(ClimaContext);
-	const {obtenerClima, msgError} = climaContext;
+	const {obtenerClima, msgError, fondoBlanco} = climaContext;
 
 	//State del context de alerta
 	const alertaContext = useContext(AlertaContext);
@@ -123,6 +125,7 @@ const FormBuscador = () => {
 				) : null}
 
 				<InputText
+					btnBlanco={fondoBlanco}
 					type="text"
 					placeholder="Buscar Ubicacion"
 					name="city"
@@ -132,6 +135,7 @@ const FormBuscador = () => {
 				/>
 
 				<Select
+					btnBlanco={fondoBlanco}
 					className="form-select"
 					aria-label="Default select example"
 					name="country"

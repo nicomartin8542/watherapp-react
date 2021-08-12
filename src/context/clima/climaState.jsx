@@ -12,6 +12,7 @@ import {
 	MODIFICAR_METRICA,
 	CARGAR_SPINNER,
 	MENSAJE_ERROR,
+	CAMBIAR_FONDO,
 } from "../../types/index";
 
 const ClimaState = (props) => {
@@ -24,6 +25,7 @@ const ClimaState = (props) => {
 		temperatura: null,
 		spinner: null,
 		msgError: null,
+		fondoBlanco: null,
 	};
 
 	//Declaro dispach para ejecutar acciones
@@ -41,6 +43,12 @@ const ClimaState = (props) => {
 	const cerrarFormulario = () => {
 		dispatch({
 			type: FORMULARIO_CLIMA_CERRAR,
+		});
+	};
+
+	const cambiarFondo = () => {
+		dispatch({
+			type: CAMBIAR_FONDO,
 		});
 	};
 
@@ -141,6 +149,7 @@ const ClimaState = (props) => {
 				temperatura: state.temperatura,
 				spinner: state.spinner,
 				msgError: state.msgError,
+				fondoBlanco: state.fondoBlanco,
 				cargarFormulario: cargarFormulario,
 				cerrarFormulario: cerrarFormulario,
 				obtenerClima: obtenerClima,
@@ -148,6 +157,7 @@ const ClimaState = (props) => {
 				calcularTemperatura: calcularTemperatura,
 				modificarMetrica: modificarMetrica,
 				cargarSpinner: cargarSpinner,
+				cambiarFondo: cambiarFondo,
 			}}
 		>
 			{props.children}

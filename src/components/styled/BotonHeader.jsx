@@ -5,8 +5,21 @@ const BotonMetric = styled.button`
 	margin-left: 1rem;
 	border-radius: 20px;
 	background-color: ${(props) =>
-		props.select ? "var(--blancoBoton)" : "var(--azulGris)"};
-	color: ${(props) => (props.select ? "#000" : "var(--blanco)")};
+		props.select
+			? props.btnBlanco
+				? "var(--azulOscuro)"
+				: "var(--blancoBoton)"
+			: props.btnBlanco
+			? "var(--gris4)"
+			: "var(--azulGris)"};
+	color: ${(props) =>
+		props.select
+			? props.btnBlanco
+				? "var(--blanco)"
+				: "var(--azulOscuro)"
+			: props.btnBlanco
+			? "var(--azulOscuro)"
+			: "var(--blanco)"};
 	border: none;
 	text-align: center;
 	font-size: 15px;

@@ -8,6 +8,7 @@ const ContenedorHeader = styled.div`
 	justify-content: flex-end;
 	padding: 2rem;
 	margin-right: 10rem;
+	position: relative;
 
 	@media screen and (max-width: 768px) {
 		margin: 0;
@@ -18,25 +19,30 @@ const ContenedorHeader = styled.div`
 const Header = () => {
 	//Importo state de clima
 	const climaContext = useContext(ClimaContext);
-	const {modificarMetrica, medidas, formulario, climaSidebar} = climaContext;
+	const {modificarMetrica, medidas, formulario, climaSidebar, fondoBlanco} =
+		climaContext;
 
 	if (formulario || !climaSidebar) return null;
 	return (
 		<ContenedorHeader>
-			<BotonHeader
-				select={medidas === "C" ? true : false}
-				type="button"
-				onClick={() => modificarMetrica("C")}
-			>
-				°C
-			</BotonHeader>
-			<BotonHeader
-				select={medidas === "F" ? true : false}
-				type="button"
-				onClick={() => modificarMetrica("F")}
-			>
-				°F
-			</BotonHeader>
+			<div>
+				<BotonHeader
+					select={medidas === "C" ? true : false}
+					btnBlanco={fondoBlanco}
+					type="button"
+					onClick={() => modificarMetrica("C")}
+				>
+					°C
+				</BotonHeader>
+				<BotonHeader
+					select={medidas === "F" ? true : false}
+					btnBlanco={fondoBlanco}
+					type="button"
+					onClick={() => modificarMetrica("F")}
+				>
+					°F
+				</BotonHeader>
+			</div>
 		</ContenedorHeader>
 	);
 };

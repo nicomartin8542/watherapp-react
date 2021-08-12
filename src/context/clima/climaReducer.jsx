@@ -7,6 +7,7 @@ import {
 	MODIFICAR_METRICA,
 	CARGAR_SPINNER,
 	MENSAJE_ERROR,
+	CAMBIAR_FONDO,
 } from "../../types/index";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -16,6 +17,12 @@ export default (state, action) => {
 			return {
 				...state,
 				formulario: true,
+			};
+
+		case CAMBIAR_FONDO:
+			return {
+				...state,
+				fondoBlanco: state.fondoBlanco ? null : true,
 			};
 
 		case FORMULARIO_CLIMA_CERRAR:

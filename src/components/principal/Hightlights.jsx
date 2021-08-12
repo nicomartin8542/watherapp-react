@@ -17,7 +17,11 @@ const Card = styled.div`
 	align-items: center;
 	padding: 2rem;
 	margin-bottom: 1rem;
-	background-color: var(--azulClaro);
+	background-color: ${(props) =>
+		props.btnBlanco ? "var(--gris4)" : "var(--azulClaro);"};
+	color: ${(props) =>
+		props.btnBlanco ? "var(--azulOscuro)" : "var(--blanco);"};
+
 	flex: 0 0 calc(40% - 2rem);
 
 	@media screen and (max-width: 1048px) {
@@ -51,7 +55,7 @@ const Hightlights = () => {
 	const climaContext = useContext(ClimaContext);
 
 	//Extraigo variables
-	const {climaSidebar, medidas} = climaContext;
+	const {climaSidebar, medidas, fondoBlanco} = climaContext;
 
 	useEffect(() => {
 		if (climaSidebar) {
@@ -99,21 +103,21 @@ const Hightlights = () => {
 				Estadisticas
 			</h1>
 			<Contenedor>
-				<Card>
+				<Card btnBlanco={fondoBlanco}>
 					<Titulo>Velocidad Viento</Titulo>
 					<Valor> {Math.ceil(climaSidebar.wind.speed * 3.6)} KmH</Valor>
 				</Card>
-				<Card>
+				<Card btnBlanco={fondoBlanco}>
 					<Titulo>Humedad</Titulo>
 					<Valor>{climaSidebar.main.humidity}%</Valor>
 				</Card>
-				<Card>
+				<Card btnBlanco={fondoBlanco}>
 					<Titulo>Temperatura Maxima</Titulo>
 					<Valor>
 						{temp.max}°{medidas}
 					</Valor>
 				</Card>
-				<Card>
+				<Card btnBlanco={fondoBlanco}>
 					<Titulo>Temperatura Minima</Titulo>
 					<Valor>
 						{temp.min}°{medidas}

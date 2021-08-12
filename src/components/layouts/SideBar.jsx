@@ -7,9 +7,15 @@ import Spinner from "../spinner/Spinner";
 
 const ContendorClima = styled.div`
 	@media screen and (min-width: 1000px) {
-		animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
-		animation-duration: 1s; /* don't forget to set a duration! */
+		animation: fadeInDown;
+		animation-duration: 1s;
 	}
+`;
+
+const Aside = styled.aside`
+	background-color: ${(props) =>
+		props.bdBlanco ? "var(--gris4)" : "var(--azulClaro)"};
+	color: ${(props) => (props.bdBlanco ? "var(--azulOscuro)" : "var(--blanco)")};
 `;
 
 const SideBar = () => {
@@ -17,10 +23,10 @@ const SideBar = () => {
 	const climaContext = useContext(ClimaContext);
 
 	//Extraigo variables y funciones del state de climaContext
-	const {formulario, spinner} = climaContext;
+	const {formulario, spinner, fondoBlanco} = climaContext;
 
 	return (
-		<aside>
+		<Aside bdBlanco={fondoBlanco}>
 			{spinner ? (
 				<Spinner />
 			) : !formulario ? (
@@ -32,7 +38,7 @@ const SideBar = () => {
 					<Buscador />
 				</div>
 			)}
-		</aside>
+		</Aside>
 	);
 };
 

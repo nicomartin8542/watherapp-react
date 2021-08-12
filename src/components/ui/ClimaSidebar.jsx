@@ -4,12 +4,14 @@ import * as moment from "moment";
 import "moment/locale/es";
 import ClimaContext from "../../context/clima/climaContext";
 import {formatearMayuscula} from "../../utils/util";
+import BotonFondo from "../styled/BotonFondo";
 
 const ContenedorClima = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: auto 0;
+	position: relative;
 `;
 
 const ClimaImg = styled.img`
@@ -82,10 +84,12 @@ const BuscarBtn = styled.button`
 	padding: 1rem;
 	margin-top: 2rem;
 	align-items: center;
-	background-color: var(--gris);
+	background-color: ${(props) =>
+		props.btnBlanco ? "var(--blanco)" : "var(--gris)"};
 	border-radius: 4px;
 	margin-right: 25rem;
-	color: var(--blanco);
+	color: ${(props) =>
+		props.btnBlanco ? "var(--azulOscuro)" : "var(--blanco)"};
 	font-weight: 700;
 	border: none;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -93,8 +97,7 @@ const BuscarBtn = styled.button`
 	span {
 		cursor: pointer;
 		display: inline-block;
-		position: relative;
-		transition: 0.5s;
+		transition: 0.3s;
 	}
 
 	/* span:after {
@@ -135,11 +138,13 @@ const ClimaSidebar = () => {
 
 	//Obtenego variables
 	const {
+		cambiarFondo,
 		cargarFormulario,
 		calcularTemperatura,
 		climaSidebar,
 		medidas,
 		temperatura,
+		fondoBlanco,
 	} = climaContext;
 
 	useEffect(() => {
@@ -154,9 +159,17 @@ const ClimaSidebar = () => {
 
 	return (
 		<ContenedorClima>
-			<BuscarBtn type="button" onClick={() => cargarFormulario()}>
+			<BuscarBtn
+				type="button"
+				btnBlanco={fondoBlanco}
+				onClick={() => cargarFormulario()}
+			>
 				<span>Buscar Localizacion</span>
 			</BuscarBtn>
+
+			<BotonFondo btnBlanco={fondoBlanco} onClick={() => cambiarFondo()}>
+				Fondo
+			</BotonFondo>
 			<ClimaImg src={`img/${climaSidebar.weather[0].icon}.png`} alt="Soleado" />
 			<DatosClima>
 				{temperatura}°{medidas}

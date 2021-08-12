@@ -12,3 +12,5 @@ export const MOSTRAR_ALERTA = "MOSTRAR_ALERTA";
 
 export const OCULTAR_ALERTA = "OCULTAR_ALERTA";
 export const MENSAJE_ERROR = "MENSAJE_ERROR";
+
+export const CAMBIAR_FONDO = "CAMBIAR_FONDO";
